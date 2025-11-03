@@ -1,0 +1,211 @@
+:root{
+  --bg:#f6f4fb;
+  --accent:#4b12ff;
+  --accent-2:#6e33ff;
+  --muted:#6b6b7b;
+  --card-bg: #fff;
+  --radius: 20px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #fbf8ff 0%, #f3f1f8 100%);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Page container */
+.container{
+  max-width:1200px;
+  margin:40px auto;
+  padding: 24px;
+}
+
+/* NAV */
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  background: rgba(255,255,255,0.6);
+  padding:12px 20px;
+  border-radius:12px;
+  box-shadow: 0 6px 18px rgba(15,15,30,0.05);
+}
+.brand{
+  display:flex;align-items:center;gap:12px;
+}
+.logo{
+  background:var(--accent);
+  color:white;
+  font-weight:700;
+  padding:10px 16px;
+  border-radius:8px;
+  box-shadow: 0 6px 18px rgba(75,18,255,0.12);
+}
+.nav-links{
+  display:flex;
+  gap:18px;
+  margin-left:18px;
+  align-items:center;
+}
+.nav-links a{ text-decoration:none; color:var(--muted); font-weight:600; font-size:14px}
+.buy-btn{
+  background:var(--accent);
+  color:white;
+  padding:10px 16px;
+  border-radius:8px;
+  border: none;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* HERO GRID */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 520px;
+  gap:32px;
+  align-items:start;
+  margin-top:48px;
+}
+
+/* Left content */
+.eyebrow{
+  color:var(--accent);
+  font-weight:700;
+  margin-bottom:12px;
+  font-size:18px;
+}
+h1{
+  font-size:64px;
+  line-height:0.95;
+  margin:0 0 20px 0;
+  letter-spacing:-0.02em;
+  color:#111827;
+}
+.subtitle{
+  color:var(--accent);
+  font-weight:700;
+  font-size:18px;
+  margin-bottom:18px;
+}
+p.lead{
+  color:#5b5b66;
+  max-width:680px;
+  margin-bottom:24px;
+  font-size:16px;
+  line-height:1.8;
+}
+
+.info-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:28px;
+}
+.info-item{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  color:#333;
+}
+.info-item svg{width:20px;height:20px;flex:0 0 20px;opacity:0.9}
+.cta-row{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  margin-bottom:28px;
+}
+.btn-primary{
+  background:var(--accent);
+  color:white;
+  padding:14px 22px;
+  border-radius:10px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 8px 30px rgba(75,18,255,0.14);
+}
+.btn-outline{
+  background:transparent;
+  border:2px solid rgba(75,18,255,0.18);
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:700;
+  color:var(--accent);
+  cursor:pointer;
+}
+
+/* Right image card */
+.image-card{
+  position:relative;
+  width:100%;
+  max-width:520px;
+  margin-left:auto;
+}
+.image-card .card{
+  background:var(--card-bg);
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow: 0 28px 60px rgba(16,14,35,0.12);
+  transform: rotate(-0.5deg);
+}
+.image-card img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  aspect-ratio: 4/3;
+}
+
+/* Floating pills */
+.pills{
+  position:absolute;
+  right:-6px;
+  top:40%;
+  transform: translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  z-index:5;
+  pointer-events:none;
+}
+.pill{
+  pointer-events:auto;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,255,0.95));
+  border-radius:999px;
+  padding:12px 18px;
+  min-width:190px;
+  box-shadow: 0 8px 28px rgba(75,18,255,0.12);
+  border: 1px solid rgba(111,63,255,0.12);
+  font-weight:600;
+  color:#111827;
+  transform: translateX(12px);
+}
+.pill small{font-size:13px;color:var(--muted);font-weight:600}
+.pill svg{width:20px;height:20px;flex:0 0 20px}
+
+/* smaller devices */
+@media (max-width:980px){
+  .hero{ grid-template-columns: 1fr; }
+  h1{ font-size:44px; }
+  .image-card{ max-width:720px; margin:20px auto 0; }
+  .pills{ right:6%; top:auto; bottom:-16px; flex-direction:row; transform:none; gap:12px; }
+  .pill{ transform:none; min-width:140px; padding:10px 14px; }
+}
+
+@media (max-width:520px){
+  body{padding:16px 8px;}
+  .container{padding:10px}
+  .nav-links{ display:none; }
+  .logo{ padding:8px 12px; font-size:14px }
+  h1{font-size:32px}
+  .eyebrow{ font-size:14px }
+}
